@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaaS Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <nav>
+        <a href="#home">🏠 Home</a>
+        <a href="#analytics">📊 Analytics</a>
+        <a href="#users">👥 Users</a>
+        <a href="#settings">⚙️ Settings</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Header -->
+      <header class="header">
+        <div class="breadcrumbs">Home / Dashboard</div>
+        <div class="header-actions">
+          <span class="last-updated">Last updated: <span id="currentDate"></span></span>
+          <button class="export-btn">⬇ Export</button>
+          <span class="notification">🔔</span>
+          <div class="avatar">AM</div>
+        </div>
+      </header>
+
+      <!-- Home -->
+      <section id="home">
+        <h1>Welcome to the SaaS Dashboard</h1>
+        <p>Track KPIs, manage users, and monitor system health.</p>
+      </section>
+
+      <!-- Analytics -->
+      <section id="analytics">
+        <h2>Analytics</h2>
+        <div class="cards">
+          <div class="card kpi">
+            <div class="icon">💰</div>
+            <h3>Revenue</h3>
+            <p>$12,340</p>
+            <span class="trend up">▲ 14% vs last month</span>
+            <svg width="100" height="40">
+              <polyline points="0,30 20,10 40,20 60,5 80,15 100,10"
+                fill="none" stroke="var(--primary)" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="card kpi">
+            <div class="icon">👥</div>
+            <h3>Active Users</h3>
+            <p>1,245</p>
+            <span class="trend up">▲ 8% vs last month</span>
+          </div>
+          <div class="card kpi">
+            <div class="icon">📈</div>
+            <h3>Conversion Rate</h3>
+            <p>4.5%</p>
+            <span class="trend down">▼ 2% vs last month</span>
+          </div>
+        </div>
+
+        <!-- Applicant Stats (Week 2 counters) -->
+        <div class="counter-cards">
+          <div class="card"><h3>Total Applicants</h3><span id="countTotal">0</span></div>
+          <div class="card"><h3>Accepted</h3><span id="countAccepted">0</span></div>
+          <div class="card"><h3>Rejected</h3><span id="countRejected">0</span></div>
+          <div class="card"><h3>Pending</h3><span id="countPending">0</span></div>
+        </div>
+
+        <div class="analytics-panel">
+          <h3>Monthly Growth</h3>
+          <svg width="300" height="100">
+            <polyline points="0,80 50,60 100,40 150,70 200,30 250,50 300,20"
+              fill="none" stroke="#10b981" stroke-width="3"/>
+          </svg>
+        </div>
+      </section>
+
+      <!-- Users -->
+      <section id="users">
+        <h2>Manage Users</h2>
+        <form id="userForm">
+          <label>Name <input type="text" name="name" required></label>
+          <label>Email <input type="email" name="email" required></label>
+          <label>Role 
+            <select name="role" required>
+              <option value="">Select Role</option>
+              <option>Admin</option>
+              <option>Editor</option>
+              <option>Viewer</option>
+            </select>
+          </label>
+          <label>Phone <input type="tel" name="phone" required></label>
+          <label>Department <input type="text" name="department" required></label>
+          <label>Join Date <input type="date" name="date" required></label>
+          <button type="submit">Add User</button>
+        </form>
+
+        <div id="emptyMessage" class="empty-state">
+           <div class="empty-icon">📄</div>
+           <strong>No Applicants Yet</strong>
+           <br>
+           Add your first applicant to get started.
+           </div>
+        <table class="user-table">
+          <thead>
+            <tr>
+              <th>Name</th><th>Email</th><th>Role</th>
+              <th>Department</th><th>Phone</th><th>Applied Date</th>
+              <th>Status</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="usersTbody"></tbody>
+        </table>
+      </section>
+
+      <!-- Settings -->
+      <section id="settings">
+        <h2>System Status</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Server Health</h3>
+            <p>✅ Online</p>
+          </div>
+          <div class="card">
+            <h3>Traffic Sources</h3>
+            <p>Organic: 60% | Paid: 40%</p>
+          </div>
+          <div class="card">
+            <h3>Recent Activity</h3>
+            <ul>
+              <li>User John created a report</li>
+              <li>Server backup completed</li>
+              <li>New signup: Alice</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>Version 2.0 | © 2026 SaaS Dashboard | Support</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast"></div>
+
+  <!-- JavaScript -->
+  <script src="app.js" defer></script>
+</body>
+</html>
